@@ -12,7 +12,6 @@ export default function DesktopIcon({
 }) {
     const iconRef = useRef<HTMLDivElement>(null);
 
-    
     function onIconClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
         deselectDesktopIcons();
         iconRef.current!.classList.add('selected');
@@ -20,11 +19,7 @@ export default function DesktopIcon({
     }
 
     return (
-        <div
-            className='desktop-icon'
-            onClick={onIconClick}
-            ref={iconRef}
-        >
+        <div className='desktop-icon' onClick={onIconClick} ref={iconRef}>
             <img
                 src={icon}
                 alt={`Icon for ${title}`}
