@@ -1,0 +1,121 @@
+#portfolio {
+    min-height: 200vh;
+    user-select: none;
+    .desktop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        transform: translateX(-100vw);
+        transition: transform 0.5s ease-out;
+        display: flex;
+        align-items: flex-start;
+        .icons {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: flex-start;
+            align-content: flex-start;
+            padding: 0.5rem;
+            height: calc(100% - var(--taskbar-height));
+            width: fit-content;
+            .desktop-icon {
+                width: 6rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0.5rem 0;
+                margin: 0.5rem;
+                cursor: pointer;
+
+                &.selected {
+                    .title {
+                        border: 1px dashed white;
+                        padding: 0;
+                        background-color: var(--windows-green);
+                    }
+                }
+
+                .title {
+                    font-family: windows, Arial, Helvetica, sans-serif;
+                    font-size: 1.2rem;
+                    text-align: center;
+                    margin-top: 0.4rem;
+                    padding: 1px;
+                }
+
+                img {
+                    width: 50%;
+                }
+            }
+        }
+
+        .window {
+            width: 100%;
+            max-width: 45rem;
+            margin-left: 2rem;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            transition: transform 0.1s ease-out;
+            transform: scale(0);
+            .body {
+                overflow-y: auto;
+                max-height: calc(100vh - 14rem);
+
+                .text {
+                    & > * {
+                        margin-bottom: 1rem;
+                    }
+                    img {
+                        width: 100%;
+                        border: 3px inset;
+                    }
+                }
+            }
+            &.visible {
+                transform: scale(1);
+            }
+            .close-button {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .bonzi {
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+    }
+
+    &.current {
+        .desktop {
+            transform: translateX(0);
+        }
+
+        .bonzi {
+            opacity: 1;
+        }
+    }
+}
+
+
+@media screen and (max-width: 350px) {
+    .desktop {
+        flex-direction: column;
+
+        .icons {
+            flex-direction: row !important;
+            height: fit-content !important;
+            min-height: 0;
+        }
+
+        .window {
+            width: calc(100% - 0.5rem) !important;
+            margin: 0 0 0 0 !important;
+            .text {
+                max-height: 18rem !important;
+            }
+        }
+    }
+}

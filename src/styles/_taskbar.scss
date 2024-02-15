@@ -1,0 +1,133 @@
+#taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--taskbar-height);
+    background-color: #dcdcdc;
+    border-top: 3px outset;
+    box-shadow: 0 -2px 0 black;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    padding-top: 0.1em;
+    padding-bottom: 0.2em;
+    pointer-events: all;
+    transition: bottom 0.1s linear;
+
+    & * {
+        font-family: windows, Arial, Helvetica, sans-serif;
+        user-select: none;
+    }
+
+    &.hide {
+        bottom: calc(var(--taskbar-height) * -2);
+    }
+
+    #start-button,
+    .taskmanager .item {
+        display: flex;
+        align-items: center;
+        padding: 0 0.4em;
+        margin: 0.2em;
+        cursor: pointer;
+        position: relative;
+        text-wrap: nowrap;
+
+        .icon {
+            height: 1.5em;
+            margin-right: 0.3em;
+        }
+
+        &:active {
+            border: 3px inset;
+            box-shadow: 1px 1px 0px 0px black inset;
+            height: calc(100% - 8px);
+            position: relative;
+            top: -1px;
+        }
+    }
+
+    #start-button .text,
+    .taskmanager .item .text {
+        padding-top: 0.2em;
+    }
+
+    #start-button .text,
+    .taskmanager .item.selected {
+        font-weight: bold;
+    }
+
+    .divider {
+        width: 6em;
+        margin: 0 0.2rem;
+    }
+
+    .section {
+        height: 100%;
+        display: flex;
+        align-items: stretch;
+
+        .start-border {
+            border-left: 1px inset;
+            border-right: 1px inset;
+        }
+
+        .dimple {
+            height: 65%;
+            align-self: center;
+            border: 2px outset;
+            margin: 0.1em;
+        }
+    }
+
+    .taskmanager {
+        flex: 1;
+        .items {
+            display: flex;
+        }
+    }
+
+    .system-drawer {
+        margin-right: 0.2em;
+        .drawer {
+            border: 3px inset;
+            box-shadow: 1px 1px 0px 1px black inset;
+            margin: 0 0.1em;
+            padding: 0.2em;
+            padding-top: 0.3em;
+            display: flex;
+            align-items: stretch;
+
+            & > * {
+                margin: 0 0.2em;
+            }
+        }
+    }
+
+    #time {
+        text-align: center;
+    }
+
+    .taskmanager .item.selected {
+        border: 3px inset;
+        box-shadow: 1px 1px 0px 0px black inset;
+        height: calc(100% - 8px);
+        position: relative;
+        background-color: white;
+        top: -1px;
+    }
+}
+
+
+@media screen and (max-width: 770px) {
+    .taskmanager .items .item .text, #start-button .text {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .system-drawer {
+        display: none !important;
+    }
+}
