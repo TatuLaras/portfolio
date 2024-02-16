@@ -35,6 +35,7 @@ export const portfolioItems: TPortfolioItem[] = [
         content: (
             <>
                 <img src='res/img/portfolio/mym.png' />
+                <div className="tech">React, Vite, TypeScript, Node.js, Express, Websockets, REST API</div>
                 <q>
                     <p>
                         Merge your music taste with someone else's! Login with
@@ -64,6 +65,7 @@ export const portfolioItems: TPortfolioItem[] = [
         content: (
             <>
                 <img src='res/img/portfolio/mediamanager.png' />
+                <div className="tech">C++, Dear ImGui, REST API</div>
                 <q>
                     <p>
                         A cross-platform entertainment hub for managing your
@@ -87,6 +89,7 @@ export const portfolioItems: TPortfolioItem[] = [
         content: (
             <>
                 <img src='res/img/portfolio/submergeold.jpg' />
+                <div className="tech">JavaScript, Node.js, Express, MySQL, EJS, REST API, Bootstrap</div>
                 <q>
                     <p>
                         Language immersion aka. consuming content that's in a

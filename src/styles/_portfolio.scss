@@ -79,6 +79,12 @@
                     .video-embed {
                         aspect-ratio: 16/9;
                     }
+
+                    .tech {
+                        background-color: lightyellow;
+                        padding: 0.5rem 1rem;
+                        border: 3px inset;
+                    }
                 }
             }
             &.visible {
