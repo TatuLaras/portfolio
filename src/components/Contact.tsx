@@ -2,7 +2,7 @@ import { LegacyRef, forwardRef } from 'react';
 
 const Contact = forwardRef((_props, ref: LegacyRef<HTMLDivElement>) => {
     return (
-        <div className='part part4' id='contact' ref={ref}>
+        <div id='contact' ref={ref}>
             <img
                 draggable='false'
                 src='res/img/yhteystiedot.png'
