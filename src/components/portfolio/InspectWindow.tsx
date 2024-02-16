@@ -4,8 +4,10 @@ import { deselectDesktopIcons } from '../../helpers';
 
 export default function InspectWindow({
     portfolioItem,
+    onCloseInspectWindow,
 }: {
     portfolioItem: TPortfolioItem | null;
+    onCloseInspectWindow: () => void;
 }) {
     const windowRef = useRef<HTMLDivElement>(null);
 
@@ -17,6 +19,7 @@ export default function InspectWindow({
     function closeWindow() {
         windowRef.current?.classList.remove('visible');
         deselectDesktopIcons();
+        onCloseInspectWindow();
     }
 
     if (!portfolioItem)

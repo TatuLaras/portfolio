@@ -18,11 +18,17 @@ const Portfolio = forwardRef((_props, ref: LegacyRef<HTMLDivElement>) => {
                             key={index}
                             icon={item.icon}
                             title={item.title}
-                            onClick={() => setCurrentPortfolioItem(item)}
+                            onClick={() => {
+                                setCurrentPortfolioItem(null);
+                                setCurrentPortfolioItem(item)
+                            }}
                         />
                     ))}
                 </div>
-                <InspectWindow portfolioItem={currentPortfolioItem} />
+                <InspectWindow
+                    portfolioItem={currentPortfolioItem}
+                    onCloseInspectWindow={() => setCurrentPortfolioItem(null)}
+                />
                 <Bonzi title='Vinkki!' type='reading' hideSpeechbubble={false}>
                     Klikkaa työpöytäkuvakkeita.
                 </Bonzi>
