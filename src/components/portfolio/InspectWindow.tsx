@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
-import { TPortfolioItem } from '../types';
-import { deselectDesktopIcons } from '../helpers';
+import { TPortfolioItem } from '../../types';
+import { deselectDesktopIcons } from '../../helpers';
 
 export default function InspectWindow({
     portfolioItem,

@@ -2,16 +2,19 @@ import { useEffect, useRef, useState } from 'react';
 import CV from './components/CV';
 import Contact from './components/Contact';
 import Hero from './components/Hero';
-import Portfolio from './portfolio/Portfolio';
+import Portfolio from './components/portfolio/Portfolio';
 import Technologies from './components/Technologies';
 import FloatingWindow from './components/FloatingWindow';
 import Taskbar from './components/taskbar/Taskbar';
+import Bonzi from './components/Bonzi';
+import { floatingWindowContent } from './content';
 
 type TStage = 'initial' | 'technologies' | 'cv' | 'portfolio' | 'contact';
 
 export default function App() {
     const [stage, setStage] = useState<TStage>('initial');
-    const [floatingWindowText, setFloatingWindowText] = useState('');
+    const [floatingWindowText, setFloatingWindowText] =
+        useState<JSX.Element | string>(<></>);
 
     const floatingWindowRef = useRef<HTMLDivElement>(null);
     const heroRef = useRef<HTMLDivElement>(null);
@@ -34,44 +37,34 @@ export default function App() {
     };
 
     useEffect(() => {
-        if (stage != 'initial') showTaskbar();
-        else hideTaskbar();
+        stage != 'initial' ? showTaskbar() : hideTaskbar();
 
         if (!floatingWindowRef.current) return;
 
+        const content = floatingWindowContent(stage);
+        content && setFloatingWindowText(content);
+
         switch (stage) {
-            case "technologies":
+            case 'technologies':
                 floatingWindowRef.current.className = 'window';
                 floatingWindowRef.current.classList.add('p1');
-                setFloatingWindowText(
-                    'Teknologioiden suhteen olen työskennellyt sekä modernien \
-                    työkalujen, että legacyn kanssa, johonkin uuteen \
-                    teknologiaan mukautuminen ja perehtyminen ei ole tuottanut minulle ongelmia.',
-                );
                 break;
-            case "cv":
+
+            case 'cv':
                 floatingWindowRef.current.className = 'window';
                 floatingWindowRef.current.classList.add('p2');
-                setFloatingWindowText(
-                    'Sekä vakaiden tietorakenteiden ja -integraatioiden, että \
-                    lähestyttävien käyttöliittymien rakentaminen sujuu kuin \
-                    itsestään. Kokemusta löytyy myös muilta ohjelmoinnin osa-alueilta.',
-                );
                 portfolioRef.current?.classList.remove('current');
                 break;
 
-            case "portfolio":
+            case 'portfolio':
                 floatingWindowRef.current.className = 'window';
                 portfolioRef.current?.classList.add('current');
                 break;
 
-            case "contact":
+            case 'contact':
                 portfolioRef.current?.classList.remove('current');
                 floatingWindowRef.current.className = 'window';
                 floatingWindowRef.current.classList.add('p1');
-                setFloatingWindowText(
-                    'Olen tällä hetkellä avoinna kaikenlaisille työmahdollisuuksille, ota rohkeasti yhteyttä!',
-                );
                 break;
 
             default:
@@ -112,13 +105,16 @@ export default function App() {
     return (
         <>
             <div id='screenspace'>
-                <FloatingWindow ref={floatingWindowRef} text={floatingWindowText}/>
-                <Taskbar ref={taskbarRef} stage={stage}/>
+                <FloatingWindow
+                    ref={floatingWindowRef}
+                    text={floatingWindowText}
+                />
+                <Taskbar ref={taskbarRef} stage={stage} />
             </div>
 
             <div id='wrapper'>
                 <div className='bg'></div>
-                <Hero ref={heroRef} />
+                <Hero ref={heroRef} disableBonzi={stage !== 'initial'} />
 
                 <div id='showcase-scrollable-region'>
                     <Technologies ref={technologiesRef} />
@@ -126,9 +122,13 @@ export default function App() {
                     <Portfolio ref={portfolioRef} />
                     <Contact ref={contactRef} />
 
-                    <div className='bonzi'>
-                        <div className='bonzi-image'></div>
-                    </div>
+                    <Bonzi
+                        hideSpeechbubble={false}
+                        title='Ota yhteyttä!'
+                        type=''
+                    >
+                        Yläpuoleltani löydät yhteystiedot.
+                    </Bonzi>
                 </div>
             </div>
         </>

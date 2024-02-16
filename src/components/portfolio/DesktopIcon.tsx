@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { deselectDesktopIcons } from '../helpers';
+import { deselectDesktopIcons } from '../../helpers';
 
 export default function DesktopIcon({
     icon,

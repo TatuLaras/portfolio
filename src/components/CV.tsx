@@ -84,8 +84,10 @@ const CV = forwardRef((_props, ref: LegacyRef<HTMLDivElement>) => {
                             </li>
                             <li>
                                 Uuden web-teknologioilla (PHP, SQL, JavaScript,
-                                HTML/CSS) toteutetun GoGolf-mobiiliapplikaation
-                                luonti.
+                                HTML/CSS) toteutetun{' '}
+                                <a href='https://play.google.com/store/apps/details?id=com.choicely.gogolf'>
+                                    GoGolf-mobiiliapplikaation
+                                </a> luonti.
                             </li>
                             <li>
                                 Erinäisten data-integraatioiden ja -koosteiden

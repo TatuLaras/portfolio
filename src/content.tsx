@@ -1,5 +1,33 @@
 import { TPortfolioItem } from './types';
 
+export const floatingWindowContent = (stage: string) => {
+    return (
+        {
+            contact: (
+                <>
+                    Olen tällä hetkellä avoinna kaikenlaisille
+                    työmahdollisuuksille!
+                </>
+            ),
+            cv: (
+                <>
+                    Vakaiden tietorakenteiden ja -integraatioiden rakentaminen
+                    sujuu kuin itsestään. Myös lähestyttävien käyttöliittymien
+                    suunnittelu ja toteutus sytyttää.
+                </>
+            ),
+            technologies: (
+                <>
+                    Teknologioiden suhteen olen työskennellyt sekä modernien
+                    työkalujen, että legacyn kanssa, johonkin uuteen
+                    teknologiaan mukautuminen ja perehtyminen ei ole tuottanut
+                    minulle ongelmia.
+                </>
+            ),
+        }[stage] ?? null
+    );
+};
+
 export const portfolioItems: TPortfolioItem[] = [
     {
         title: 'Merge Your Music',
@@ -38,7 +66,7 @@ export const portfolioItems: TPortfolioItem[] = [
         ),
     },
     {
-        title: 'Submerge (old version)',
+        title: 'Submerge (web)',
         icon: 'res/img/icons/world_address_book-0.png',
         content: (
             <>
