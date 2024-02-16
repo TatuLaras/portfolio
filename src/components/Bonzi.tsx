@@ -1,4 +1,4 @@
-import { LegacyRef, forwardRef } from 'react';
+import { LegacyRef, forwardRef, useRef } from 'react';
 
 const Bonzi = forwardRef(
     (
@@ -15,10 +15,11 @@ const Bonzi = forwardRef(
         },
         ref: LegacyRef<HTMLDivElement>,
     ) => {
+        const speechbubbleRef = useRef<HTMLDivElement>(null);
         return (
             <div className='bonzi' ref={ref}>
                 {!hideSpeechbubble && (
-                    <div className='speech-bubble show' id='speech-bubble'>
+                    <div className='speech-bubble show' ref={speechbubbleRef}>
                         <div className='content'>
                             <div className='default'>
                                 <div className='top'>
@@ -26,9 +27,9 @@ const Bonzi = forwardRef(
                                     <button
                                         className='close'
                                         onClick={() =>
-                                            document
-                                                .querySelector('#speech-bubble')
-                                                ?.classList.remove('show')
+                                            speechbubbleRef.current?.classList.remove(
+                                                'show',
+                                            )
                                         }
                                     >
                                         X
