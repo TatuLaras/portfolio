@@ -68,7 +68,7 @@ const Hero = forwardRef(
                                     kanssa on tullut työskenneltyä työn
                                     puolestakin paljon.
                                     <b> SQL</b>-relaatiotietokannat (
-                                    <b>MariaDB/MySQL</b>, <b>SQL Server</b>)
+                                    <b>MariaDB / MySQL</b>, <b>SQL Server</b>)
                                     tunnen kuin omat taskuni .
                                 </p>
                             </div>

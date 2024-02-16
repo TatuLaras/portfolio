@@ -70,9 +70,14 @@
                     & > * {
                         margin-bottom: 1rem;
                     }
-                    img {
+                    img,
+                    .video-embed {
                         width: 100%;
                         border: 3px inset;
+                    }
+                    
+                    .video-embed {
+                        aspect-ratio: 16/9;
                     }
                 }
             }
@@ -100,7 +105,6 @@
         }
     }
 }
-
 
 @media screen and (max-width: 350px) {
     .desktop {
