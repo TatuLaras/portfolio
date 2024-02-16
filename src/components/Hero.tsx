@@ -65,7 +65,7 @@ const Hero = forwardRef(
                                     puolella kokemusta on karttunut eniten{' '}
                                     <b>Node.js</b> (ja <b>Express</b>)
                                     -ympäristöstä, sekä klassikko-<b>PHP</b>:n
-                                    kanssa on tultu työskenneltyä työn
+                                    kanssa on tullut työskenneltyä työn
                                     puolestakin paljon.
                                     <b> SQL</b>-relaatiotietokannat (
                                     <b>MariaDB/MySQL</b>, <b>SQL Server</b>)
